@@ -1,0 +1,5 @@
+<section [className]="''">
+  <app-card *ngFor="let task of tasks" [title]="task.title">
+    <app-task-checkbox label="{{ task.description }}" />
+  </app-card>
+</section>
