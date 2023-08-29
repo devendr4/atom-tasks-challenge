@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^16.2.0
     version: 16.2.0(@angular/common@16.2.0)(@angular/core@16.2.0)(@angular/platform-browser@16.2.0)(rxjs@7.8.0)
+  papercss:
+    specifier: ^1.9.2
+    version: 1.9.2
   rxjs:
     specifier: ~7.8.0
     version: 7.8.0
@@ -6990,6 +6993,10 @@ packages:
   /pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
     dev: true
+
+  /papercss@1.9.2:
+    resolution: {integrity: sha512-6pOXUbuNgjdufXu4F34BYCXzel0YyB25FS9jWwq38PWEyzcWU3SWUneCHmvM5zUK7omCQ2/VdMXf8hlJC73/mA==}
+    dev: false
 
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
