@@ -1,0 +1,44 @@
+button {
+  align-self: center;
+  font-weight: bold;
+  background: transparent;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  transition: all 0.5s ease;
+  color: #41403e;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  backdrop-filter: blur(2px);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
+  /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+  &:hover {
+    box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  }
+  &.lined.thick {
+    border: solid 7px #41403e;
+  }
+  &.dotted.thick {
+    border: dotted 5px #41403e;
+  }
+  &.dashed.thick {
+    border: dashed 5px #41403e;
+  }
+  &.lined.thin {
+    border: solid 4px #41403e;
+  }
+  &.dotted.thin {
+    border: dotted 2px #41403e;
+  }
+  &.dashed.thin {
+    border: dashed 2px #41403e;
+  }
+}

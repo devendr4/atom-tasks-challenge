@@ -1,5 +1,9 @@
-<section [className]="''">
+<section [className]="'flex flex-col gap-7'">
   <app-card *ngFor="let task of tasks" [title]="task.title">
-    <app-task-checkbox label="{{ task.description }}" />
+    <h3 class="font-bold text-lg">{{ task.title }}</h3>
+    <div class="flex p-1">
+      <app-task-checkbox label="{{ task.description }}" />
+      <p>{{ task.description }}</p>
+    </div>
   </app-card>
 </section>

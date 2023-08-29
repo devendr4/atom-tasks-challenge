@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, TasksModule],
+  imports: [BrowserModule, AppRoutingModule, TasksModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
