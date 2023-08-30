@@ -1,6 +1,7 @@
 <button
-  class="font-bold p-2 text-lg backdrop-blur-sm"
+  class="ont-bold p-2 text-lg backdrop-blur-sm"
+  [class]="class + ' ' + type ? 'btn-' + type : '' + ' '"
   [disabled]="disabled"
   (click)="onClick($event)">
-  <ng-content></ng-content>
+  <ng-content />
 </button>
