@@ -6,7 +6,10 @@
         (clicked)="redirect()"
         iconSrc="assets/svg/edit.svg"
         class="text-yellow-500 text-xs" />
-      <app-icon-btn iconSrc="assets/svg/trash.svg" class="text-red-500" />
+      <app-icon-btn
+        (clicked)="deleteTask()"
+        iconSrc="assets/svg/trash.svg"
+        class="text-red-500" />
     </div>
   </div>
   <div class="flex p-1">

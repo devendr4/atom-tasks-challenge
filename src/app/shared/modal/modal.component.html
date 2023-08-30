@@ -1,0 +1,20 @@
+<dialog
+  [open]="isOpen"
+  #test
+  class="fixed top-0 left-0 bg-gray-600 bg-opacity-50 backdrop-blur-sm h-full w-full z-40">
+  <div
+    class="relative top-48 mx-auto container p-5 border w-fit shadow-lg rounded-md bg-white text-center">
+    <!-- <div class="btn-close" for="modal-1">X</div> -->
+    <h4 class="text-center font-bold text-lg">Delete task</h4>
+    <ng-content></ng-content>
+    <p class="modal-text">Are you sure you want to delete this task?</p>
+    <div class="w-full flex justify-center gap-2">
+      <app-button type="success" class="btn-small" (clicked)="toggleModal()"
+        >Yes</app-button
+      >
+      <app-button type="danger" class="btn-small" (clicked)="toggleModal()"
+        >No</app-button
+      >
+    </div>
+  </div>
+</dialog>

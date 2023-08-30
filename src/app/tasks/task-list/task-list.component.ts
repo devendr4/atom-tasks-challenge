@@ -8,4 +8,9 @@ import { Task } from '../models';
 })
 export class TaskListComponent {
   @Input() tasks: Task[];
+  isModalOpen = false;
+
+  toggleModal() {
+    this.isModalOpen = !this.isModalOpen;
+  }
 }

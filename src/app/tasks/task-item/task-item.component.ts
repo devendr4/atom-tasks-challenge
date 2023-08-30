@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../models';
 import { Router } from '@angular/router';
 
@@ -9,8 +9,13 @@ import { Router } from '@angular/router';
 })
 export class TaskItemComponent {
   @Input() task: Task;
+  @Output() openModal: EventEmitter<unknown> = new EventEmitter();
 
   constructor(private router: Router) {}
+
+  deleteTask() {
+    this.openModal.emit();
+  }
 
   redirect() {
     this.router.navigate(['/new'], { state: { task: this.task } });
