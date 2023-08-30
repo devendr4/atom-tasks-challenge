@@ -3,6 +3,7 @@
     <h3 class="font-bold text-xl">{{ task.title }}</h3>
     <div class="flex">
       <app-icon-btn
+        (clicked)="redirect($event)"
         iconSrc="assets/svg/edit.svg"
         class="text-yellow-500 text-xs" />
       <app-icon-btn iconSrc="assets/svg/trash.svg" class="text-red-500" />

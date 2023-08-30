@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-item',
@@ -8,4 +9,11 @@ import { Task } from '../models';
 })
 export class TaskItemComponent {
   @Input() task: Task;
+
+  constructor(private router: Router) {}
+
+  redirect(event: unknown) {
+    console.log('r', event);
+    this.router.navigate(['/new']);
+  }
 }
