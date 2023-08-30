@@ -1,6 +1,3 @@
-<div [className]="'card border' + border">
-  <div>
-    <ng-content></ng-content>
-    {{ content }}
-  </div>
+<div [ngClass]="{ class: !!class }" [className]="'card border' + border + ' '">
+  <ng-content></ng-content>
 </div>
