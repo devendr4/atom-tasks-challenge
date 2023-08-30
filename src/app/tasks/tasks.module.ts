@@ -5,10 +5,26 @@ import { SharedModule } from '../shared/shared.module';
 import { TaskCheckboxComponent } from './task-checkbox/task-checkbox.component';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { TaskItemComponent } from './task-item/task-item.component';
+import { TaskFormComponent } from './task-form/task-form.component';
+import { IndexComponent } from './pages/index/index.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [TaskListComponent, TaskCheckboxComponent, TaskItemComponent],
-  imports: [CommonModule, SharedModule, AngularSvgIconModule],
+  declarations: [
+    TaskListComponent,
+    TaskCheckboxComponent,
+    TaskItemComponent,
+    TaskFormComponent,
+    IndexComponent,
+    NewTaskComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    AngularSvgIconModule,
+    ReactiveFormsModule,
+  ],
   exports: [TaskListComponent],
 })
 export class TasksModule {}

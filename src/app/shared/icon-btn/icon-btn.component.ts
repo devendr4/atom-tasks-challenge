@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-icon-btn',
@@ -8,4 +8,9 @@ import { Component, Input } from '@angular/core';
 export class IconBtnComponent {
   @Input() iconSrc: string;
   @Input() class: string;
+  @Output() clicked: EventEmitter<MouseEvent> = new EventEmitter();
+
+  onClick(event: MouseEvent) {
+    this.clicked.emit(event);
+  }
 }
