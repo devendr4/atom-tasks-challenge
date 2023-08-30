@@ -12,8 +12,7 @@ export class TaskItemComponent {
 
   constructor(private router: Router) {}
 
-  redirect(event: unknown) {
-    console.log('r', event);
-    this.router.navigate(['/new']);
+  redirect() {
+    this.router.navigate(['/new'], { state: { task: this.task } });
   }
 }

@@ -1,8 +1,10 @@
 <section>
-  <h1 class="text-5xl font-bold text-center">New task</h1>
+  <h1 class="text-5xl font-bold text-center">
+    {{ editedTask ? 'Edit task' : 'New task' }}
+  </h1>
   <app-button (clicked)="redirect($event)">Go back</app-button>
 </section>
 
-<div class="w-full flex justify-center">
-  <app-task-form></app-task-form>
+<div class="flex justify-center">
+  <app-task-form [task]="editedTask"></app-task-form>
 </div>
