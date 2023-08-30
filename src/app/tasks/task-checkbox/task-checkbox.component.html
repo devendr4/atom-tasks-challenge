@@ -1,5 +1,9 @@
 <form class="">
   <label>
-    <input class="cb" type="checkbox" />
+    <input
+      #checkbox
+      [defaultChecked]="completed"
+      [ngClass]="{ pristine: completed, cb: true }"
+      type="checkbox" />
   </label>
 </form>
