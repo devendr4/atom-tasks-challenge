@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-  isOpen: boolean;
+  @Input() isOpen: boolean;
+  @Input() msg: string;
+  @Output() openModal: EventEmitter<unknown> = new EventEmitter();
+
+  toggleModal() {
+    this.openModal.emit();
+  }
 }

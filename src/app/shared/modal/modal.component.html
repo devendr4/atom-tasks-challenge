@@ -1,14 +1,20 @@
-<label class="paper-btn margin" for="modal-1">Open Modal!</label>
-<input class="modal-state" id="modal-1" type="checkbox" />
-<div class="modal">
-  <label class="modal-bg" for="modal-1"></label>
-  <div class="modal-body w-2/3">
-    <label class="btn-close" for="modal-1">X</label>
-    <h4 class="modal-title font-bold text-lg">Delete task</h4>
-    <p class="modal-text">Do you really want to delete this task?</p>
+<dialog
+  [open]="isOpen"
+  #test
+  class="fixed top-0 left-0 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-40">
+  <div
+    class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white text-center">
+    <div class="btn-close" for="modal-1">X</div>
+    <h4 class="text-center font-bold text-lg">Delete task</h4>
+    <ng-content></ng-content>
+    <p class="modal-text">Are you sure you want to delete this task?</p>
     <div class="w-full flex justify-center gap-2">
-      <app-button type="success" class="btn-small">Yes</app-button>
-      <app-button type="danger" class="btn-small">No</app-button>
+      <app-button type="success" class="btn-small" (clicked)="toggleModal()"
+        >Yes</app-button
+      >
+      <app-button type="danger" class="btn-small" (clicked)="toggleModal()"
+        >No</app-button
+      >
     </div>
   </div>
-</div>
+</dialog>
