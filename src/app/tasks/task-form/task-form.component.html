@@ -23,6 +23,6 @@
       <option value="3">Option 3</option>
     </select> -->
 
-    <app-button>Submit</app-button>
+    <app-button [disabled]="!taskForm.valid">Submit</app-button>
   </form>
 </app-card>

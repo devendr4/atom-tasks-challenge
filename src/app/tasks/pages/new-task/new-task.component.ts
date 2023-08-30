@@ -13,11 +13,9 @@ export class NewTaskComponent {
     this.editedTask = this.router.getCurrentNavigation()?.extras.state?.[
       'task'
     ] as Task;
-    console.log(this.editedTask);
   }
 
-  redirect(event: unknown) {
-    console.log('r', event);
+  redirect() {
     this.router.navigate(['/']);
   }
 }
