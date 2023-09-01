@@ -3,6 +3,8 @@ import { Task } from '../models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/core/http.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/core/services/alert.service';
 
 @Component({
   selector: 'app-task-form',
@@ -25,12 +27,22 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
-  constructor(private taskService: TasksService) {}
+  constructor(
+    private taskService: TasksService,
+    private router: Router,
+    private alertService: AlertService
+  ) {}
 
   onSubmit() {
-    if (this.task)
+    if (this.task) {
       this.taskService.updateTask({ ...this.taskForm.value, id: this.task.id });
-    else this.taskService.createTask(this.taskForm.value);
+
+      this.alertService.setOpen('Task succesfully edited!');
+    } else {
+      this.taskService.createTask(this.taskForm.value);
+      this.alertService.setOpen('Task succesfully created!');
+    }
     this.taskForm.reset();
+    this.router.navigate(['/']);
   }
 }
