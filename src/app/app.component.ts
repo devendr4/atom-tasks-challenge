@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertService } from './core/services/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'atom-tasks-challenge';
+
+  constructor(public alertService: AlertService) {}
 }

@@ -1,9 +1,10 @@
 <form class="">
   <label>
     <input
+      (click)="onClick()"
       #checkbox
       [defaultChecked]="completed"
-      [ngClass]="{ pristine: completed, cb: true }"
+      [ngClass]="{ pristine: !completed, checked: completed, cb: true }"
       type="checkbox" />
   </label>
 </form>

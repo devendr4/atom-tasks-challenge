@@ -1,4 +1,4 @@
-<app-card class="w-10">
+<app-card class="w-10/12">
   <form
     class="flex justify-center flex-col items-center gap-3"
     [formGroup]="taskForm"
@@ -17,12 +17,6 @@
       formControlName="description"
       class="w-full"
       placeholder="More details for the task"></textarea>
-    <!-- <select id="paperSelects1" class="w-full">
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select> -->
-
-    <app-button [disabled]="!taskForm.valid">Submit</app-button>
+    <app-button type="success" [disabled]="!taskForm.valid">Submit</app-button>
   </form>
 </app-card>

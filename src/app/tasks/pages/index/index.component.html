@@ -1,26 +1,32 @@
 <section>
-  <h1 class="text-5xl font-bold text-center">To-do list!</h1>
-  <div class="flex flex-wrap justify-between">
-    <app-button (clicked)="redirect($event)">Create new item</app-button>
-    <div class="tabs">
-      <input
-        id="tab1"
-        type="radio"
-        name="tabs"
-        checked
-        class="w-1/2"
-        (click)="setActiveTasks(false)" />
-      <label for="tab1">Pending</label>
+  <div>
+    <h1 class="text-5xl font-bold text-center">To-do list!</h1>
+    <div class="flex flex-wrap justify-between">
+      <app-button (clicked)="redirect()">Create new item</app-button>
+      <div class="tabs mb-2">
+        <input
+          id="tab1"
+          type="radio"
+          name="tabs"
+          [checked]="!getCurrentFilter()"
+          class="w-1/2"
+          (click)="setActiveTasks()" />
+        <label for="tab1">Pending</label>
 
-      <input
-        id="tab2"
-        type="radio"
-        name="tabs"
-        (click)="setActiveTasks(true)" />
-      <label for="tab2">Finished</label>
+        <input
+          id="tab2"
+          [checked]="getCurrentFilter()"
+          type="radio"
+          name="tabs"
+          (click)="setActiveTasks()" />
+        <label for="tab2">Finished</label>
+      </div>
     </div>
   </div>
-</section>
-<br />
 
-<app-task-list [tasks]="filteredTasks" />
+  <!-- <ng-scrollbar autoHeightDisabled="false" [visibility]="'hover'"> -->
+  <!-- <div class="h-[calc(80vh-12rem)]"> -->
+  <app-task-list [tasks]="getFilteredTasks()" (getData)="fetchData()" />
+  <!-- </div> -->
+  <!-- </ng-scrollbar> -->
+</section>

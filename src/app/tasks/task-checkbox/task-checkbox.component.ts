@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
 } from '@angular/core';
 
@@ -11,15 +13,17 @@ import {
   templateUrl: './task-checkbox.component.html',
   styleUrls: ['./task-checkbox.component.scss'],
 })
-export class TaskCheckboxComponent implements AfterViewInit {
-  @Input() completed? = false;
+export class TaskCheckboxComponent {
+  @Input() completed? = true;
   checked?: boolean = this.completed;
   @ViewChild('checkbox') check: ElementRef;
-  // renderer: Renderer2;
+  @Output() toggleCheck = new EventEmitter();
 
-  ngAfterViewInit(): void {
+  onClick() {
+    console.log('emit');
     const classes = this.check.nativeElement.classList;
     if (classes.contains('pristine'))
       this.check.nativeElement.classList.remove('pristine');
+    this.toggleCheck.emit();
   }
 }
