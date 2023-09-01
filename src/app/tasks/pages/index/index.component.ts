@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Task } from '../../models';
-import { HttpService } from 'src/app/core/http.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
@@ -10,20 +9,33 @@ import { TasksService } from 'src/app/core/services/tasks.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
+  tasks: Task[];
+
   constructor(
     private router: Router,
-    public tasksService: TasksService
+    private tasksService: TasksService
   ) {}
 
   ngOnInit(): void {
-    this.tasksService.getTasks();
+    this.fetchData();
   }
 
-  redirect(event: unknown) {
+  fetchData() {
+    this.tasksService.getTasks();
+  }
+  getCurrentFilter() {
+    return this.tasksService.completedTaskFilter;
+  }
+
+  getFilteredTasks() {
+    return this.tasksService.getFilteredTasks();
+  }
+
+  redirect() {
     this.router.navigate(['/new']);
   }
 
-  setActiveTasks(active: boolean) {
-    this.tasksService.setActiveTasks(active);
+  setActiveTasks() {
+    this.tasksService.setActiveTasks();
   }
 }

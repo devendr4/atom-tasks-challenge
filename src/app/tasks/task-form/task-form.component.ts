@@ -35,7 +35,11 @@ export class TaskFormComponent implements OnInit {
 
   onSubmit() {
     if (this.task) {
-      this.taskService.updateTask({ ...this.taskForm.value, id: this.task.id });
+      this.taskService.updateTask({
+        id: this.task.id,
+        title: this.taskForm.get('title')?.value,
+        description: this.taskForm.get('description')?.value,
+      });
 
       this.alertService.setOpen('Task succesfully edited!');
     } else {
