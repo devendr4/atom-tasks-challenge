@@ -1,27 +1,31 @@
-<section class="flex flex-col">
-  <h1 class="text-5xl font-bold text-center">To-do list!</h1>
-  <div class="flex flex-wrap justify-between">
-    <app-button (clicked)="redirect($event)">Create new item</app-button>
-    <div class="tabs mb-2">
-      <input
-        id="tab1"
-        type="radio"
-        name="tabs"
-        checked
-        class="w-1/2"
-        (click)="setActiveTasks(false)" />
-      <label for="tab1">Pending</label>
+<section>
+  <div>
+    <h1 class="text-5xl font-bold text-center">To-do list!</h1>
+    <div class="flex flex-wrap justify-between">
+      <app-button (clicked)="redirect($event)">Create new item</app-button>
+      <div class="tabs mb-2">
+        <input
+          id="tab1"
+          type="radio"
+          name="tabs"
+          checked
+          class="w-1/2"
+          (click)="setActiveTasks(false)" />
+        <label for="tab1">Pending</label>
 
-      <input
-        id="tab2"
-        type="radio"
-        name="tabs"
-        (click)="setActiveTasks(true)" />
-      <label for="tab2">Finished</label>
+        <input
+          id="tab2"
+          type="radio"
+          name="tabs"
+          (click)="setActiveTasks(true)" />
+        <label for="tab2">Finished</label>
+      </div>
     </div>
   </div>
-</section>
 
-<app-task-list
-  [tasks]="tasksService.filteredTasks"
-  (getData)="tasksService.getTasks()" />
+  <div class="h-[calc(80vh-12rem)]">
+    <app-task-list
+      [tasks]="tasksService.filteredTasks"
+      (getData)="tasksService.getTasks()" />
+  </div>
+</section>

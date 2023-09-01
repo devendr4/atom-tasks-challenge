@@ -1,7 +1,7 @@
 <app-card [title]="task.title">
-  <div class="flex justify-between">
+  <div class="flex justify-between flex-wrap truncate">
     <h3 class="font-bold text-xl">{{ task.title }}</h3>
-    <div class="flex">
+    <div class="flex flex-wrap">
       <app-icon-btn
         (clicked)="redirect()"
         iconSrc="assets/svg/edit.svg"
@@ -20,4 +20,5 @@
     </div>
     <p>{{ task.description }}</p>
   </div>
+  <p class="text-end">{{ getDate() }}</p>
 </app-card>

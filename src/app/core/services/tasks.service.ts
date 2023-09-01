@@ -28,7 +28,7 @@ export class TasksService {
     this.filteredTasks = this.tasks.filter(v => v.completed === active);
   }
 
-  updateTask(editedTask: Task) {
+  updateTask(editedTask: Partial<Task>) {
     this.httpService
       .editTask({
         ...editedTask,

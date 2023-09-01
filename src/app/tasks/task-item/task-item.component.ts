@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../models';
 import { Router } from '@angular/router';
 import { TasksService } from 'src/app/core/services/tasks.service';
@@ -26,10 +26,14 @@ export class TaskItemComponent {
     this.router.navigate(['/new'], { state: { task: this.task } });
   }
 
+  getDate() {
+    return new Date(this.task.createdAt).toLocaleString();
+  }
+
   toggleCompleted() {
     console.log('complete');
     this.taskService.updateTask({
-      ...this.task,
+      id: this.task.id,
       completed: !this.task.completed,
     });
   }
