@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Task } from '../../models';
 
 @Component({
   selector: 'app-new-task',
@@ -8,12 +7,7 @@ import { Task } from '../../models';
   styleUrls: ['./new-task.component.scss'],
 })
 export class NewTaskComponent {
-  editedTask?: Task;
-  constructor(private router: Router) {
-    this.editedTask = this.router.getCurrentNavigation()?.extras.state?.[
-      'task'
-    ] as Task;
-  }
+  constructor(public router: Router) {}
 
   redirect() {
     this.router.navigate(['/']);

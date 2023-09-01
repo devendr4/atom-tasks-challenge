@@ -14,6 +14,13 @@ To accomplish that style, after a day of searching for components and styles, I 
 - Pencil and Paper checkbox: https://codepen.io/jkantner/details/wEeWWG
 - Hosted on Firebase Hosting: https://atom-ebfdc.web.app/
 
+Features:
+- Create task.
+- Update task.
+- Mark task as completed.
+- Delete task (logical delete)
+- Infinite pagination on scroll.
+
 
 # API
 This project connects to a Node.js server in order to connect to the NoSQL database Cloud Firestore where the tasks are created and fetched. The code for this API lives on: https://github.com/devendr4/atom-tasks-challenge-api
@@ -50,3 +57,10 @@ Desarrollado con:
 - TypeScript: 5.2.2
 - Firebase-admin: 11.10.1
 - Desplegado con Firebase functions: https://us-central1-atom-ebfdc.cloudfunctions.net/default/v1/
+
+Funcionalidades:
+- Crear tarea.
+- Editar tarea.
+- Marcar tarea como completada.
+- Eliminar tarea lógicamente
+- Paginación infinita con scroll

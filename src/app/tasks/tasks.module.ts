@@ -11,6 +11,7 @@ import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TaskFormComponent,
     IndexComponent,
     NewTaskComponent,
+    EditTaskComponent,
   ],
   imports: [
     CommonModule,

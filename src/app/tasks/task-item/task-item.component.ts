@@ -23,7 +23,7 @@ export class TaskItemComponent {
   }
 
   redirect() {
-    this.router.navigate(['/new'], { state: { task: this.task } });
+    this.router.navigate([`/edit/${this.task.id}`]);
   }
 
   getDate() {
