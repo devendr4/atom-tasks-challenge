@@ -1,27 +1,11 @@
-# AtomTasksChallenge
+# To-do list
+This is a to-do list app developed as part of a coding test for the Atom Chat company.
+Inspired by **this** Simpsons to do list, I decided to go for a paper like, handwritten design.
+![Homer's To Do list : r/TheSimpsons](https://external-preview.redd.it/kCjls9biFFl9DWCgc53iLla7PcfdKQxW1_twLSxyixs.jpg?auto=webp&s=ff06f7ffdae24eb0567a332fec3010217179c5b5)
+To accomplish that style, after a day of searching for components and styles, I stumbled upon PaperCSS, a components library that was the perfect fit. Since it also included some layout and flexbox components which I didn't need since I was going to using Tailwind, I cloned the PaperCSS repo and made some changes to leave out some of the classes that I wouldn't use, in order to avoid conflicts with Tailwind.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- TypeScript 5.1.3.
+- Angular 16.2.0
+- TailwindCSS 3.3.3
+- PaperCSS 1.9.2
+- Pencil and Paper checkbox: https://codepen.io/jkantner/details/wEeWWG
