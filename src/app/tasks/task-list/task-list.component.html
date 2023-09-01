@@ -4,8 +4,8 @@
   [taskId]="taskToDelete"
   (openModal)="toggleModal()"></app-modal>
 <section
-  [className]="'flex flex-col h-[calc(80vh-12rem)] gap-5   max-h-full'"
   scrollViewport
+  [className]="'flex flex-col gap-5  overflow-y-auto  max-h-full'"
   infiniteScroll
   [infiniteScrollDistance]="0.1"
   [infiniteScrollThrottle]="500"

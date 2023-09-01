@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../models';
 import { Router } from '@angular/router';
 import { TasksService } from 'src/app/core/services/tasks.service';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-task-item',
@@ -18,7 +19,6 @@ export class TaskItemComponent {
   ) {}
 
   deleteTask() {
-    console.log('deleting');
     this.setTaskToDelete.emit(this.task.id);
   }
 
@@ -27,11 +27,11 @@ export class TaskItemComponent {
   }
 
   getDate() {
-    return new Date(this.task.createdAt).toLocaleString();
+    const date = new Date(this.task.createdAt).toLocaleString();
+    return dayjs(date).format('DD-MM-YY hh:mm a');
   }
 
   toggleCompleted() {
-    console.log('complete');
     this.taskService.updateTask({
       id: this.task.id,
       completed: !this.task.completed,

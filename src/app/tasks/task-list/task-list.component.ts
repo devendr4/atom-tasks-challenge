@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../models';
 
 @Component({
@@ -14,7 +14,6 @@ export class TaskListComponent {
   @Output() getData: EventEmitter<Task> = new EventEmitter();
 
   setTaskToDelete(taskId: string) {
-    console.log(taskId);
     this.taskToDelete = taskId;
     this.isModalOpen = true;
   }

@@ -8,7 +8,7 @@ describe('TaskCheckboxComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TaskCheckboxComponent]
+      declarations: [TaskCheckboxComponent],
     });
     fixture = TestBed.createComponent(TaskCheckboxComponent);
     component = fixture.componentInstance;

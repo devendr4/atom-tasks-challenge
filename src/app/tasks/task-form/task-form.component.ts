@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from 'src/app/core/http.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/core/services/alert.service';
@@ -17,7 +16,6 @@ export class TaskFormComponent implements OnInit {
   taskForm: FormGroup;
 
   ngOnInit(): void {
-    console.log(this.task);
     this.taskForm = new FormGroup({
       title: new FormControl(this.task?.title, [Validators.required]),
       description: new FormControl(this.task?.description, [

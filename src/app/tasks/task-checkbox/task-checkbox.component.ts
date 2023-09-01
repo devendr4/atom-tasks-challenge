@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -20,7 +19,6 @@ export class TaskCheckboxComponent {
   @Output() toggleCheck = new EventEmitter();
 
   onClick() {
-    console.log('emit');
     const classes = this.check.nativeElement.classList;
     if (classes.contains('pristine'))
       this.check.nativeElement.classList.remove('pristine');

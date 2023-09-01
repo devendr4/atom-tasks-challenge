@@ -25,7 +25,6 @@ export class IndexComponent implements OnInit {
   }
 
   setTaskToDelete(taskId: string) {
-    console.log(taskId);
     this.taskToDelete = taskId;
     this.isModalOpen = true;
   }
