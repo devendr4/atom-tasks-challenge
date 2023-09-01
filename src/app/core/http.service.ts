@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task, TasksResponse } from '../tasks/models';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
-  apiUrl = 'http://localhost:5000/atom-ebfdc/us-central1/default/v1';
+  apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
   getTasks(lastTaskId = ''): Observable<TasksResponse> {
