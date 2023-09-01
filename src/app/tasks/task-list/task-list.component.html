@@ -1,7 +1,18 @@
-<section [className]="'flex flex-col gap-5'">
-  <app-modal [isOpen]="isModalOpen" (openModal)="toggleModal()"></app-modal>
+<app-modal
+  *ngIf="taskToDelete"
+  [isOpen]="isModalOpen"
+  [taskId]="taskToDelete"
+  (openModal)="toggleModal()"></app-modal>
+<section
+  [className]="'flex flex-col h-[calc(80vh-12rem)] gap-5   max-h-full'"
+  scrollViewport
+  infiniteScroll
+  [infiniteScrollDistance]="0.1"
+  [infiniteScrollThrottle]="500"
+  [scrollWindow]="false"
+  (scrolled)="scroll()">
   <app-task-item
     *ngFor="let task of tasks"
     [task]="task"
-    (openModal)="toggleModal()" />
+    (setTaskToDelete)="setTaskToDelete($event)" />
 </section>

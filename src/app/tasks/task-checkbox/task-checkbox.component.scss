@@ -130,6 +130,18 @@ $dur: 0.5s;
   }
 }
 
+.checked {
+  &:checked {
+    background-color: transparent;
+    &:before {
+      animation: drawA $dur forwards;
+    }
+    &:after {
+      animation: drawA $dur forwards;
+    }
+  }
+}
+
 @keyframes drawA {
   from,
   5% {

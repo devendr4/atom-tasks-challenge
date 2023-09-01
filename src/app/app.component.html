@@ -1,6 +1,6 @@
 <main class="flex justify-center">
   <div class="container">
-    <div class="paper">
+    <div class="paper w-11/12 sm:w-[80vw] relative lg:w-3/5">
       <div class="lines">
         <div class="text">
           <router-outlet></router-outlet>
@@ -12,3 +12,13 @@
     </div>
   </div>
 </main>
+<input class="alert-state" id="alert-1" type="checkbox" />
+<div
+  [class]="
+    'alert w-3/12  dismissible fixed bottom-0 right-5 alert-' +
+    alertService.type
+  "
+  *ngIf="alertService.isOpen">
+  {{ alertService.msg }}
+  <label class="btn-close" for="alert-1">X</label>
+</div>

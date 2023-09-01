@@ -3,3 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+:root {
+  background: #fafad2;
+  font-size: 1.2rem;
+  .scrollbar {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+  }
+  .scrollbar-thumb {
+    background-color: rgba(161, 27, 27, 0.4);
+  }
+}
