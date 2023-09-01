@@ -3,18 +3,16 @@
   [isOpen]="isModalOpen"
   [taskId]="taskToDelete"
   (openModal)="toggleModal()"></app-modal>
-<ng-scrollbar>
-  <section
-    [className]="'flex flex-col gap-5 search-results  max-h-full'"
-    scrollViewport
-    infiniteScroll
-    [infiniteScrollDistance]="0.1"
-    [infiniteScrollThrottle]="500"
-    [scrollWindow]="false"
-    (scrolled)="scroll()">
-    <app-task-item
-      *ngFor="let task of tasks"
-      [task]="task"
-      (setTaskToDelete)="setTaskToDelete($event)" />
-  </section>
-</ng-scrollbar>
+<section
+  [className]="'flex flex-col h-[calc(80vh-12rem)] gap-5   max-h-full'"
+  scrollViewport
+  infiniteScroll
+  [infiniteScrollDistance]="0.1"
+  [infiniteScrollThrottle]="500"
+  [scrollWindow]="false"
+  (scrolled)="scroll()">
+  <app-task-item
+    *ngFor="let task of tasks"
+    [task]="task"
+    (setTaskToDelete)="setTaskToDelete($event)" />
+</section>

@@ -24,7 +24,9 @@
     </div>
   </div>
 
-  <div class="h-[calc(80vh-12rem)]">
-    <app-task-list [tasks]="getFilteredTasks()" (getData)="fetchData()" />
-  </div>
+  <!-- <ng-scrollbar autoHeightDisabled="false" [visibility]="'hover'"> -->
+  <!-- <div class="h-[calc(80vh-12rem)]"> -->
+  <app-task-list [tasks]="getFilteredTasks()" (getData)="fetchData()" />
+  <!-- </div> -->
+  <!-- </ng-scrollbar> -->
 </section>

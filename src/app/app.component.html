@@ -14,7 +14,10 @@
 </main>
 <input class="alert-state" id="alert-1" type="checkbox" />
 <div
-  class="alert w-3/12 alert-primary dismissible fixed bottom-0 right-5"
+  [class]="
+    'alert w-3/12  dismissible fixed bottom-0 right-5 alert-' +
+    alertService.type
+  "
   *ngIf="alertService.isOpen">
   {{ alertService.msg }}
   <label class="btn-close" for="alert-1">X</label>

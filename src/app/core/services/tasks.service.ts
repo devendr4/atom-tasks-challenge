@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Task } from 'src/app/tasks/models';
 import { HttpService } from '../http.service';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +12,26 @@ export class TasksService {
   lastTaskId = '';
   completedTaskFilter = false;
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private alertService: AlertService
+  ) {}
 
   getTasks() {
-    console.log('getting');
     //only make request if there are more tasks to fetch or if there aren't any tasks at first
     // if (reset) this.lastTaskId = '';
     if (this.lastTaskId || this.tasks.length === 0)
-      this.httpService.getTasks(this.lastTaskId).subscribe(data => {
-        this.tasks = this.tasks.concat(data.tasks);
-        this.lastTaskId = data.lastTaskId;
+      this.httpService.getTasks(this.lastTaskId).subscribe({
+        next: data => {
+          this.tasks = this.tasks.concat(data.tasks);
+          this.lastTaskId = data.lastTaskId;
+        },
+        error: () => {
+          this.alertService.setOpen(
+            'An error has ocurred while fetching the tasks',
+            'danger'
+          );
+        },
       });
   }
 
@@ -37,25 +48,50 @@ export class TasksService {
       .editTask({
         ...editedTask,
       })
-      .subscribe(task => {
-        const taskIndex = this.tasks.findIndex(v => v.id === task.id);
-        //need to spread both edited fields and existing ones
-        //since date and id are not editable and could be lost otherwise
-        this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...task };
-      });
+      .subscribe({
+        next: task => {
+          const taskIndex = this.tasks.findIndex(v => v.id === task.id);
+          //need to spread both edited fields and existing ones
+          //since date and id are not editable and could be lost otherwise
+          this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...task };
+          //updates currently stored task without having refetch all tasks
+        },
 
-    //update currently stored task without having refetch all tasks
+        error: () => {
+          this.alertService.setOpen(
+            'An error has ocurred while updating the task',
+            'danger'
+          );
+        },
+      });
   }
 
   createTask(task: Task) {
-    this.httpService.createTask(task).subscribe(createdTask => {
-      this.tasks.unshift(createdTask);
+    this.httpService.createTask(task).subscribe({
+      next: createdTask => {
+        this.tasks.unshift(createdTask);
+      },
+
+      error: () => {
+        this.alertService.setOpen(
+          'An error has ocurred while creating the task',
+          'danger'
+        );
+      },
     });
   }
 
   deleteTask(taskId: string) {
-    this.httpService.deleteTask(taskId).subscribe(() => {
-      this.tasks = this.tasks.filter(v => v.id !== taskId);
+    this.httpService.deleteTask(taskId).subscribe({
+      next: () => {
+        this.tasks = this.tasks.filter(v => v.id !== taskId);
+      },
+      error: () => {
+        this.alertService.setOpen(
+          'An error has ocurred while deleting the task',
+          'danger'
+        );
+      },
     });
   }
 }

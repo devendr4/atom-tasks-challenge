@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Task } from '../../models';
 import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
@@ -9,8 +8,9 @@ import { TasksService } from 'src/app/core/services/tasks.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  tasks: Task[];
-
+  isModalOpen = false;
+  //task id
+  taskToDelete?: string;
   constructor(
     private router: Router,
     private tasksService: TasksService
@@ -22,6 +22,16 @@ export class IndexComponent implements OnInit {
 
   fetchData() {
     this.tasksService.getTasks();
+  }
+
+  setTaskToDelete(taskId: string) {
+    console.log(taskId);
+    this.taskToDelete = taskId;
+    this.isModalOpen = true;
+  }
+
+  toggleModal() {
+    this.isModalOpen = !this.isModalOpen;
   }
   getCurrentFilter() {
     return this.tasksService.completedTaskFilter;
