@@ -12,5 +12,8 @@ export class AlertService {
   setOpen(msg: string) {
     this.isOpen = true;
     this.msg = msg;
+    setTimeout(() => {
+      this.isOpen = false;
+    }, 8000);
   }
 }
