@@ -25,25 +25,12 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
-  constructor(
-    private httpService: HttpService,
-    private taskService: TasksService
-  ) {}
+  constructor(private taskService: TasksService) {}
 
   onSubmit() {
     if (this.task)
-      this.httpService
-        .editTask({ ...this.taskForm.value, id: this.task.id })
-        .subscribe(editedTask => {
-          console.log(editedTask);
-          this.taskService.updateTask(editedTask);
-        });
-    else
-      this.httpService
-        .createTask(this.taskForm.value)
-        .subscribe(createdTask => {
-          this.taskService.appendTask(createdTask);
-        });
+      this.taskService.updateTask({ ...this.taskForm.value, id: this.task.id });
+    else this.taskService.createTask(this.taskForm.value);
     this.taskForm.reset();
   }
 }

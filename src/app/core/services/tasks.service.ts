@@ -29,14 +29,23 @@ export class TasksService {
   }
 
   updateTask(editedTask: Task) {
+    this.httpService
+      .editTask({
+        ...editedTask,
+      })
+      .subscribe(task => {
+        const taskIndex = this.tasks.findIndex(v => v.id === task.id);
+        this.tasks[taskIndex] = task;
+      });
+
     //update currently stored task without having refetch all tasks
-    const taskIndex = this.tasks.findIndex(v => v.id === editedTask.id);
-    this.tasks[taskIndex] = editedTask;
   }
 
-  appendTask(task: Task) {
-    this.tasks.push(task);
-    console.log(this.tasks);
+  createTask(task: Task) {
+    this.httpService.createTask(task).subscribe(createdTask => {
+      this.tasks.push(createdTask);
+      console.log(this.tasks);
+    });
   }
 
   deleteTask(taskId: string) {

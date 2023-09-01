@@ -14,7 +14,9 @@
   </div>
   <div class="flex p-1">
     <div class="flex items-center">
-      <app-task-checkbox [completed]="task.completed" />
+      <app-task-checkbox
+        [completed]="task.completed"
+        (toggleCheck)="toggleCompleted()" />
     </div>
     <p>{{ task.description }}</p>
   </div>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../models';
 import { Router } from '@angular/router';
+import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
   selector: 'app-task-item',
@@ -11,7 +12,10 @@ export class TaskItemComponent {
   @Input() task: Task;
   @Output() setTaskToDelete: EventEmitter<string> = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private taskService: TasksService
+  ) {}
 
   deleteTask() {
     console.log('deleting');
@@ -20,5 +24,13 @@ export class TaskItemComponent {
 
   redirect() {
     this.router.navigate(['/new'], { state: { task: this.task } });
+  }
+
+  toggleCompleted() {
+    console.log('complete');
+    this.taskService.updateTask({
+      ...this.task,
+      completed: !this.task.completed,
+    });
   }
 }
