@@ -16,7 +16,6 @@ export class TaskListComponent {
   }
 
   scroll() {
-    console.log('scrolling');
     this.getData.emit();
   }
 }

@@ -1,8 +1,8 @@
-<section class="h-full">
+<section class="flex flex-col">
   <h1 class="text-5xl font-bold text-center">To-do list!</h1>
   <div class="flex flex-wrap justify-between">
     <app-button (clicked)="redirect($event)">Create new item</app-button>
-    <div class="tabs">
+    <div class="tabs mb-2">
       <input
         id="tab1"
         type="radio"
@@ -20,6 +20,6 @@
       <label for="tab2">Finished</label>
     </div>
   </div>
-  <br />
-  <app-task-list [tasks]="filteredTasks" (getData)="getTasks()" />
 </section>
+
+<app-task-list [tasks]="filteredTasks" (getData)="getTasks()" />
