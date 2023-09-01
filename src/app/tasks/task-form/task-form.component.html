@@ -23,6 +23,8 @@
       <option value="3">Option 3</option>
     </select> -->
 
+    <app-task-checkbox [completed]="task?.completed" />
+
     <app-button [disabled]="!taskForm.valid">Submit</app-button>
   </form>
 </app-card>

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../models';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/core/http.service';
+import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
   selector: 'app-task-form',
@@ -23,11 +25,25 @@ export class TaskFormComponent implements OnInit {
     });
   }
 
-  constructor() {}
+  constructor(
+    private httpService: HttpService,
+    private taskService: TasksService
+  ) {}
 
   onSubmit() {
-    console.log(this.taskForm.get('title')?.value);
-    console.log(this.taskForm.get('description')?.value);
-    console.log('submitted');
+    if (this.task)
+      this.httpService
+        .editTask({ ...this.taskForm.value, id: this.task.id })
+        .subscribe(editedTask => {
+          console.log(editedTask);
+          this.taskService.updateTask(editedTask);
+        });
+    else
+      this.httpService
+        .createTask(this.taskForm.value)
+        .subscribe(createdTask => {
+          this.taskService.appendTask(createdTask);
+        });
+    this.taskForm.reset();
   }
 }

@@ -20,11 +20,8 @@ export class HttpService {
     return this.http.post<Task>(`${this.apiUrl}/tasks`, task);
   }
 
-  editTask(task: Task): Observable<TasksResponse> {
-    return this.http.put<TasksResponse>(
-      `${this.apiUrl}/tasks/${task.id}`,
-      task
-    );
+  editTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/tasks/${task.id}`, task);
   }
 
   deleteTask(taskId: string): Observable<undefined> {

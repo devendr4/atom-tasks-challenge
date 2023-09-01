@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HttpService } from 'src/app/core/http.service';
+import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
   selector: 'app-modal',
@@ -7,10 +9,23 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ModalComponent {
   @Input() isOpen: boolean;
-  @Input() msg: string;
+  @Input() taskId: string;
   @Output() openModal: EventEmitter<unknown> = new EventEmitter();
+
+  constructor(
+    private httpService: HttpService,
+    private taskService: TasksService
+  ) {}
 
   toggleModal() {
     this.openModal.emit();
+  }
+
+  deleteTask() {
+    this.httpService.deleteTask(this.taskId).subscribe(() => {
+      this.openModal.emit();
+      this.taskService.deleteTask(this.taskId);
+      console.log('deleted');
+    });
   }
 }

@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
 })
 export class TaskItemComponent {
   @Input() task: Task;
-  @Output() openModal: EventEmitter<unknown> = new EventEmitter();
+  @Output() setTaskToDelete: EventEmitter<string> = new EventEmitter();
 
   constructor(private router: Router) {}
 
   deleteTask() {
-    this.openModal.emit();
+    console.log('deleting');
+    this.setTaskToDelete.emit(this.task.id);
   }
 
   redirect() {

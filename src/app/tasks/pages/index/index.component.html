@@ -22,4 +22,6 @@
   </div>
 </section>
 
-<app-task-list [tasks]="filteredTasks" (getData)="getTasks()" />
+<app-task-list
+  [tasks]="tasksService.filteredTasks"
+  (getData)="tasksService.getTasks()" />
