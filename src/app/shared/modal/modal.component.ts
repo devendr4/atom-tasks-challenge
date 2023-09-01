@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { HttpService } from 'src/app/core/http.service';
+import { AlertService } from 'src/app/core/services/alert.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class ModalComponent {
   @Output() openModal: EventEmitter<unknown> = new EventEmitter();
 
   constructor(
-    private httpService: HttpService,
-    private taskService: TasksService
+    private taskService: TasksService,
+    private alertService: AlertService
   ) {}
 
   toggleModal() {
@@ -22,10 +22,9 @@ export class ModalComponent {
   }
 
   deleteTask() {
-    this.httpService.deleteTask(this.taskId).subscribe(() => {
-      this.openModal.emit();
-      this.taskService.deleteTask(this.taskId);
-      console.log('deleted');
-    });
+    this.taskService.deleteTask(this.taskId);
+    this.openModal.emit();
+
+    this.alertService.setOpen('Task succesfully deleted!');
   }
 }

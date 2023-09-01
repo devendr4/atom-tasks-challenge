@@ -8,14 +8,14 @@
           id="tab1"
           type="radio"
           name="tabs"
-          checked="!getCurrentFilter()"
+          [checked]="!getCurrentFilter()"
           class="w-1/2"
           (click)="setActiveTasks()" />
         <label for="tab1">Pending</label>
 
         <input
           id="tab2"
-          checked="getCurrentFilter()"
+          [checked]="getCurrentFilter()"
           type="radio"
           name="tabs"
           (click)="setActiveTasks()" />

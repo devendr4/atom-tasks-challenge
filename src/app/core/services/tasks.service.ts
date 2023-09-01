@@ -49,11 +49,13 @@ export class TasksService {
 
   createTask(task: Task) {
     this.httpService.createTask(task).subscribe(createdTask => {
-      this.tasks.push(createdTask);
+      this.tasks.unshift(createdTask);
     });
   }
 
   deleteTask(taskId: string) {
-    this.tasks = this.tasks.filter(v => v.id !== taskId);
+    this.httpService.deleteTask(taskId).subscribe(() => {
+      this.tasks = this.tasks.filter(v => v.id !== taskId);
+    });
   }
 }

@@ -7,13 +7,12 @@ export class AlertService {
   isOpen = false;
   msg = '';
 
-  constructor() {}
-
   setOpen(msg: string) {
     this.isOpen = true;
     this.msg = msg;
     setTimeout(() => {
       this.isOpen = false;
-    }, 8000);
+      //stays open for 5 seconds
+    }, 5000);
   }
 }
