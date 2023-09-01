@@ -9,6 +9,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { IndexComponent } from './pages/index/index.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     SharedModule,
+    InfiniteScrollModule,
     AngularSvgIconModule,
     ReactiveFormsModule,
   ],

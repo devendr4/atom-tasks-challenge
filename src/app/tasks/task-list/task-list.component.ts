@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../models';
-import { HttpService } from 'src/app/core/http.service';
 
 @Component({
   selector: 'app-task-list',
@@ -10,8 +9,14 @@ import { HttpService } from 'src/app/core/http.service';
 export class TaskListComponent {
   @Input() tasks: Task[];
   isModalOpen = false;
+  @Output() getData: EventEmitter<Task> = new EventEmitter();
 
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;
+  }
+
+  scroll() {
+    console.log('scrolling');
+    this.getData.emit();
   }
 }

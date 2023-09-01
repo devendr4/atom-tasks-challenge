@@ -25,9 +25,11 @@ export class IndexComponent implements OnInit {
 
   getTasks() {
     this.httpService.getTasks(this.lastTaskId).subscribe(data => {
-      this.tasks = data.tasks;
-      this.filteredTasks = this.tasks.filter(v => !v.completed);
-      this.lastTaskId = data.lastTaskId;
+      if (data.lastTaskId) {
+        this.tasks = this.tasks.concat(data.tasks);
+        this.filteredTasks = this.tasks.filter(v => !v.completed);
+        this.lastTaskId = data.lastTaskId;
+      }
     });
   }
 

@@ -1,5 +1,11 @@
-<section [className]="'flex flex-col gap-5'">
-  <app-modal [isOpen]="isModalOpen" (openModal)="toggleModal()"></app-modal>
+<app-modal [isOpen]="isModalOpen" (openModal)="toggleModal()"></app-modal>
+<section
+  [className]="'flex flex-col gap-5 search-results'"
+  infiniteScroll
+  [infiniteScrollDistance]="0.1"
+  [infiniteScrollThrottle]="500"
+  [scrollWindow]="false"
+  (scrolled)="scroll()">
   <app-task-item
     *ngFor="let task of tasks"
     [task]="task"
