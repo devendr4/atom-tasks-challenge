@@ -1,4 +1,4 @@
-<app-card class="w-10">
+<app-card class="w-10/12">
   <form
     class="flex justify-center flex-col items-center gap-3"
     [formGroup]="taskForm"
@@ -17,6 +17,6 @@
       formControlName="description"
       class="w-full"
       placeholder="More details for the task"></textarea>
-    <app-button [disabled]="!taskForm.valid">Submit</app-button>
+    <app-button type="success" [disabled]="!taskForm.valid">Submit</app-button>
   </form>
 </app-card>

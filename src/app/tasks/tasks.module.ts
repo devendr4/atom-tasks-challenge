@@ -10,6 +10,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     InfiniteScrollModule,
     AngularSvgIconModule,
     ReactiveFormsModule,
+    NgScrollbarModule,
   ],
   exports: [TaskListComponent],
 })
