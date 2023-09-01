@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../models';
+import { HttpService } from 'src/app/core/http.service';
 
 @Component({
   selector: 'app-task-list',
