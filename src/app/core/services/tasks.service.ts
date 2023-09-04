@@ -51,8 +51,9 @@ export class TasksService {
     return this.tasks.filter(v => v.completed === this.completedTaskFilter);
   }
 
-  updateTask(editedTask: Partial<Task>) {
-    this.spinner.show();
+  updateTask(editedTask: Partial<Task>, checked?: boolean) {
+    //dont show spinner when marking the task as completed to better showcase the pencil animations
+    if (!checked) this.spinner.show();
     this.httpService
       .editTask({
         ...editedTask,
@@ -64,7 +65,7 @@ export class TasksService {
           //since date and id are not editable and could be lost otherwise
           this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...task };
 
-          this.spinner.hide();
+          if (!checked) this.spinner.hide();
 
           this.alertService.setOpen('Task succesfully edited!');
           //updates currently stored task without having refetch all tasks

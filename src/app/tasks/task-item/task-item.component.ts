@@ -32,9 +32,12 @@ export class TaskItemComponent {
   }
 
   toggleCompleted() {
-    this.taskService.updateTask({
-      id: this.task.id,
-      completed: !this.task.completed,
-    });
+    this.taskService.updateTask(
+      {
+        id: this.task.id,
+        completed: !this.task.completed,
+      },
+      true
+    );
   }
 }
