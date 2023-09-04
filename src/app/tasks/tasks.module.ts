@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
     EditTaskComponent,
   ],
   imports: [
+    NgxSpinnerModule,
     CommonModule,
     SharedModule,
     InfiniteScrollModule,

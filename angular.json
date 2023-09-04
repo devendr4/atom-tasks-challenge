@@ -3,9 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
+    "schematicCollections": ["@angular-eslint/schematics"],
     "analytics": false
   },
   "newProjectRoot": "projects",
@@ -31,7 +29,11 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/paper.min.css", "src/styles.scss"],
+            "styles": [
+              "src/paper.min.css",
+              "src/styles.scss",
+              "node_modules/ngx-spinner/animations/fire.css"
+            ],
             "scripts": []
           },
           "configurations": {

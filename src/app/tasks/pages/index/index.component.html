@@ -26,6 +26,14 @@
 
   <!-- <ng-scrollbar autoHeightDisabled="false" [visibility]="'hover'"> -->
   <div class="h-[calc(80vh-12rem)]">
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="#fff"
+      type="fire"
+      [fullScreen]="true"
+      ><p style="color: white">Loading...</p></ngx-spinner
+    >
     <app-task-list [tasks]="getFilteredTasks()" (getData)="fetchData()" />
   </div>
   <!-- </ng-scrollbar> -->
