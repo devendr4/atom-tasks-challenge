@@ -16,9 +16,13 @@ export class TaskFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskForm = new FormGroup({
-      title: new FormControl(this.task?.title, [Validators.required]),
+      title: new FormControl(this.task?.title, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
       description: new FormControl(this.task?.description, [
         Validators.required,
+        Validators.minLength(3),
       ]),
       completed: new FormControl(false, []),
     });
